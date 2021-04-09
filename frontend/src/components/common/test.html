@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css" />
+   <script src="validationScript.js"></script> 
+</head>
+
+
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<form role="form" action="signupSuccessful.html" name = "signup" ng-app = "dApp" >
+					<center><h2>Signup Form </h2></center>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group" ng-png-class = "{'has-error': signup.first_name.$invalid && signup.first_name.$dirty, 'has-success': signup.first_name.$valid}">
+										<input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1" ng-pattern="/^[a-zA-Z]*$/" ng-model = "user.first_name" required/>
+										<p class = "help-block" ng-if="signup.first_name.$invalid && signup.first_name.$dirty">
+											Please Enter a valid First Name
+										</p>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group" ng-png-class = "{'has-error': signup.last_name.$invalid && signup.last_name.$dirty, 'has-success': signup.last_name.$valid}">
+										<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2" ng-pattern="/^[a-zA-Z]*$/" ng-model = "user.last_name" required/>
+										<p class = "help-block" ng-if="signup.last_name.$invalid && signup.last_name.$dirty">
+											Please Enter a valid Last Name
+										</p>
+									</div>
+								</div>
+							</div>
+              
+              
+							<div class="form-group" ng-png-class = "{'has-error': signup.email.$invalid && signup.email.$dirty, 'has-success': signup.email.$valid}">
+								<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Your Email" tabindex="1" ng-pattern = '/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/'  ng-trim = "false" ng-model = "email" required my-directive />
+								<p class = "help-block" ng-if="signup.email.$invalid && signup.email.$dirty ">
+									Please Enter a valid email address
+								</p>
+                            </div>
+                            
+						</div>
+						<div class="form-group" ng-class="{'has-error': signup.password.$pristine && signup.password.$dirty, 'has-success': signup.password.$valid}">
+              
+							<input type="password" class="form-control input-lg" name = "password" id="password" placeholder="Your Password" ng-model = "user.password" ng-minLength = "8" required/>
+							<p class="help-block" ng-if="signup.password.$invalid && signup.password.$dirty">
+								Password is too Short
+							</p>
+						</div>
+						<div class='input-group date' id='datetimepicker1' ng-class="{'has-error': signup.date.$pristine, 'has-success': signup.date.$dirty}">
+                
+							<input type="date" class="form-control input-lg" name = "date" id="Date" placeholder="DD/MM/YY" ng-model = "user.date" required/>
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-calendar">
+								</span>
+							</span>
+							<p class="help-block" ng-if="signup.date.$pristine">
+								Please select Date
+							</p>
+						</div>
+						<div class="form-group" ng-class="{'has-error': signup.date.$pristine, 'has-success': signup.date.$dirty}">
+							<select class="form-control input-lg" id="gender" name = "gender" ng-model = "user.gender" required/>
+							  <option value="">Gender</option>
+							  <option value="Male">Male</option>
+							  <option value="Female">Female</option>
+							</select>         
+							<p class="help-block" ng-if="signup.gender.$pristine">
+								Please select Gender
+							</p>
+						</div>
+
+						<div class="checkbox" ng-class="{'has-error': signup.cbox.$pristine, 'has-success': signup.cbox.$dirty}">
+							 
+							<label>
+								<input type="checkbox" name = "cbox" id="termsAndConditions" ng-model = "user.cbox" required/> I Accept the <a href="#">terms and conditions </a> of the website.
+							</label>
+						</div> 
+						<center>
+							<button type="submit" class="btn btn-primary input-lg" ng-disabled="signup.email.$invalid || signup.password.$invalid || signup.first_name.$invalid || signup.last_name.$invalid || signup.date.$pristine || signup.gender.$pristine || signup.cbox.$pristine">
+							Complete Registration!
+							</button>
+						</center>
+					</form>
+				</div>
+				<div class="col-md-4">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+		var app = angular.module('dApp', []);
+app.directive('myDirective', function() {
+    return {
+        require: 'ng-model',
+        link: function(scope, element, attr, mCtrl) {
+            function myValidation(value) {
+                if (value.endsWith(".web")|| value.endsWith(".we")|| value.endsWith(".w")) {
+                    mCtrl.$setValidity('charE', false);
+                } else {
+                    mCtrl.$setValidity('charE', true);
+                }
+                return value;
+            }
+            mCtrl.$parsers.push(myValidation);
+        }
+    };
+});
+
+</script>
+</body>
+</html>
+

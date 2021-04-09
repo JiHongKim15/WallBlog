@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <mappers>
+        <mapper resource="mappers/user.xml"/>
+        <mapper resource="mappers/blog.xml"/>
+        <mapper resource="mappers/blogSearch.xml"/>
+        <mapper resource="mappers/comment.xml"/>
+        <mapper resource="mappers/emailcheck.xml"/>
+        <mapper resource="mappers/companyInfo.xml"/>
+        <mapper resource="mappers/admin.xml"/>
+        <mapper resource="mappers/like.xml"/>
+ 
+    </mappers>
+</configuration>

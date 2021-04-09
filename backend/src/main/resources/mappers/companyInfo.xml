@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.blog.dao.article.CompanyInfoDao">
+
+    <!-- CompanyInfo -->
+
+    <insert id="createCompanyInfo" parameterType="InfoCreateDeleteBean">
+        insert into companyinfo (companyName, lastModifiedUid, isOfficial)
+        values(#{companyName}, #{uid}, true);
+
+       insert into companyinfo (companyName, lastModifiedUid, isOfficial)
+        values(#{companyName}, #{uid}, false);
+    </insert>
+
+    <select id="selectOfficial" resultType="CompanyInfo">
+        select *
+        from companyinfo
+        where companyName = #{companyName} and isOfficial = true
+    </select>
+
+    <select id="selectUnofficial" resultType="CompanyInfo">
+        select *
+        from companyinfo
+        where companyName = #{companyName} and isOfficial = false
+    </select>
+
+    <update id="updateOfficial" parameterType="CompanyInfo">
+		update companyinfo
+		set contents = #{contents}, lastModifiedUid = #{currentUid}, lastModifiedDate = current_timestamp()
+		where companyName = #{companyName} and isOfficial = true
+	</update>
+
+    <update id="updateUnofficial" parameterType="CompanyInfo">
+        update companyinfo
+        set contents = #{contents}, lastModifiedUid = #{currentUid}, lastModifiedDate = current_timestamp()
+        where companyName = #{companyName} and isOfficial = false
+	</update>
+
+    <delete id="deleteCompanyInfo" parameterType="InfoCreateDeleteBean">
+        delete
+        from companyinfo
+        where companyName = #{companyName}
+    </delete>
+
+    <update id="updateSummary" parameterType="CompanyInfo">
+        update companyinfo
+        set summary = #{summary}
+        where companyName = #{companyName} and isOfficial = true
+    </update>
+
+</mapper>

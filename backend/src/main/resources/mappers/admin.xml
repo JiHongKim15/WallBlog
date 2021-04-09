@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.blog.dao.admin.adminPage">
+
+    <!-- adminPage -->
+
+    <select id="companyList" resultType="CompanyInfo">
+        select companyName, lastModifiedUid, lastModifiedDate, isOfficial, createdDate
+        from companyinfo
+        <if test="companyName != null">
+            where companyName = #{companyName}
+        </if>
+    </select>
+
+    <select id="userList" resultType="UserUsedByAdmin">
+        select uid, email, create_date,
+        (select companyName from companyinfo where lastModifiedUid = uid order by lastModifiedDate desc limit 1 ) as lastModify
+        from user
+        <if test="uid != null">
+            where uid = #{email}
+        </if>
+    </select>
+
+    <select id="blogList" resultType="Blog">
+        select Bno, keyword, title, uid, likes, views, create_date
+        from blog
+        where uid = #{uid}
+    </select>
+
+    <select id="isUser" resultType="boolean">
+        select if(count(uid)>0, TRUE, FALSE)
+        from user where uid = #{uid}
+    </select>
+
+    <select id="categoryList" resultType="String">
+        select *
+        from blogcategory;
+    </select>
+
+    <insert id="createCategory">
+        insert into blogcategory
+        values (#{category})
+    </insert>
+
+    <delete id="deleteCategory">
+        delete from blogcategory
+        where category = #{category}
+    </delete>
+
+</mapper>

@@ -1,0 +1,222 @@
+/* COL */
+/* COLOR */
+/* FONT */
+/*30px*/
+/*20px*/
+/* GAP */
+/* img */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap");
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+  word-break: keep-all;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+}
+
+/* reset */
+body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  /*  -webkit-text-fill-color: #333;*/
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-ms-autofill,
+input:-ms-autofill:hover,
+input:-ms-autofill:focus
+input:-ms-autofill,
+textarea:-ms-autofill,
+textarea:-ms-autofill:hover
+textarea:-ms-autofill:focus,
+select:-ms-autofill,
+select:-ms-autofill:hover,
+select:-ms-autofill:focus {
+  /*  -ms-text-fill-color: #333;*/
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-moz-autofill,
+input:-moz-autofill:hover,
+input:-moz-autofill:focus
+input:-moz-autofill,
+textarea:-moz-autofill,
+textarea:-moz-autofill:hover
+textarea:-moz-autofill:focus,
+select:-moz-autofill,
+select:-moz-autofill:hover,
+select:-moz-autofill:focus {
+  /*  -moz-text-fill-color: #333;*/
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+
+textarea {
+  vertical-align: top;
+  border: none;
+  font-size: 1em;
+  resize: none;
+  line-height: 1.7em;
+}
+
+textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background-color: #fff;
+  margin-top: 2px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+input:focus {
+  outline: 0;
+}
+
+select:focus {
+  outline: 0;
+}
+
+::-webkit-input-placeholder {
+  color:white;
+}
+
+:-ms-input-placeholder {
+  color: white;
+}
+
+::-moz-placeholder {
+  color: white;
+}
+
+:-moz-placeholder {
+  color: white;
+}
+/* 
+body {
+  font-size: 16px;
+  overflow-x: auto;
+  line-height: 1;
+  overflow-y: auto;
+  min-width: 1024px;
+} */
+
+.wrap {
+  width: 100%;
+  float: left;
+}
+
+.wrapB {
+  width: 915px;
+  margin: 0 auto;
+}
+
+.wrapC {
+  width: 750px;
+  margin: 0 auto;
+}
+
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.pcNone {
+  display: none;
+}
+
+.moNone {
+  display: block;
+}
+
+.btn {
+  border-radius: 100px;
+  border: 1px solid #000;
+  background-color: #eee;
+  padding: 5px 20px;
+}
+
+
+/* media query */
+/*# sourceMappingURL=style.css.map */
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.blog.dao.blog.LikeDao"> <!-- mybatis는 namespace필수!! -->
+
+    <!-- like -->
+
+	<insert id="createBoardLike">
+            INSERT INTO bloglike (Bno, uid)
+            VALUES (#{Bno}, #{uid})
+        </insert>
+
+	<delete id="deleteBoardLike">
+            DELETE FROM bloglike
+            WHERE Bno = #{Bno} AND uid = #{uid}
+        </delete>
+
+	<select id="updateBoardLike">
+            UPDATE blog
+            SET
+            likeCnt = (SELECT COUNT(*)
+            FROM bloglike
+            WHERE Bno = #{Bno})
+            WHERE Bno = #{Bno}
+        </select>
+
+	<select id="getBoardLike" resultType="int">
+            SELECT COUNT(Lno)
+            FROM bloglike
+            WHERE Bno = #{Bno} AND uid = #{uid}
+        </select>
+
+</mapper>

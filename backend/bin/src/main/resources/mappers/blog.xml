@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.web.blog.dao.blog.BlogDao"> <!-- mybatis는 namespace필수!! -->
+
+	<!-- member -->
+	
+	<insert id="insert">
+		insert into blog (uid, title, keyword, contents)	
+		values(#{uid}, #{title}, #{keyword}, #{contents})
+	</insert>
+	
+	
+	<delete id="delete">
+		delete from blog
+		where uid = #{uid} and title = #{title}
+	</delete>
+	
+	<update id="update">
+		update blog
+		set title = #{title},
+		contents = #{contents}
+		where title = #{title} and uid = #{uid}
+	</update>
+	
+	<select id ="mylist" resultType ="Blog">
+		select * from blog	
+		where uid = #{uid}
+	</select>
+
+</mapper>
+
+
+
+

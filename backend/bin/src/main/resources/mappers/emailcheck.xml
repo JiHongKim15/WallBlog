@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.blog.dao.user.UserSignup"> <!-- mybatis는 namespace필수!! -->
+
+	
+	<select id="emailselect" resultType = "EmailCheck">
+		select *
+		from emailcheck
+		where email = #{email}
+	
+	</select>
+	
+	<insert id="emailinsert">
+		insert into emailcheck (email, code)
+		values(#{email},  #{code});
+	</insert>
+	
+	<update id="emailupdate">
+		update emailcheck
+		set confirm = 1
+		where email = #{email}
+	</update>
+	
+	<delete id="emaildelete">
+		delete from emailcheck
+		where email = #{email}
+	</delete>
+
+</mapper>
+
+
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.blog.dao.blog.CommentDao">
+
+    <!-- Comment -->
+
+    <insert id="insert">
+		insert into comment (Bno, uid, contents)
+		values(#{Bno}, #{uid}, #{contents})
+	</insert>
+
+    <delete id="delete">
+		delete from comment
+		where cno = #{cno}
+	</delete>
+
+    <update id="update">
+		update comment
+		set contents = #{contents}
+		where cno = #{cno}
+	</update>
+
+    <select id="listCommentPage" resultType="Comment">
+        select *
+        from comment
+        where Bno = #{Bno};
+    </select>
+
+</mapper>
+
+
+
+

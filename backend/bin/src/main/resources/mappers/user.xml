@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.blog.dao.user.UserSignup"> <!-- mybatis는 namespace필수!! -->
+
+	<!-- member -->
+
+	<select id="login" resultType="Users">
+		select *
+		from user
+		where email =
+		#{email}
+		and password = #{password}
+	</select>
+
+	<insert id="insert">
+		insert into user (uid, password, email)
+		values(#{uid}, #{password}, #{email})
+	</insert>
+	
+
+	<select id="select" resultType="SignupRequest">
+		select * from user
+		where uid = 
+		#{uid} or email = #{email}
+	</select>
+
+	<select id="selectUid" resultType="SignupRequest">
+		select * from user
+		where uid =
+		#{uid}
+	</select>
+
+	<select id="selectEmail" resultType="SignupRequest">
+		select * from user
+		where
+		email = #{email}
+	</select>
+
+	<delete id="delete">
+		delete from user
+		where uid = #{uid}
+	</delete>
+
+	<update id="update">
+		update user
+		set uid = #{uid},
+		password = #{password},
+		introduce = #{introduce}
+		where email = #{email}
+	</update>
+
+	<!-- 이미지 -->
+	<update id="uploadImg">
+		update user
+		set image = #{image},
+		where email = #{email}
+	</update>
+</mapper>
+
+
+
+
